@@ -1,0 +1,24 @@
+# Environments
+.venv/
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+.env
+
+# Logs
+logs/
+*.log
+
+# Frontend
+tc-frontend/node_modules/
+tc-frontend/dist/
+tc-frontend/dist-ssr/
+
+# Project specifics
+outputs/
+*.pdf
+*.txt
+download
+backend/certs/
+backend/*.db

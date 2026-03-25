@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 19% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 19% 18%;
+    --input: 217 19% 18%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+    --grid-line: rgba(255, 255, 255, 0.12);
+    --watermark-opacity: 0.05;
+    --mesh-opacity: 0.15;
+
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+
+    --sidebar-background: 222 40% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 19% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 19% 18%;
+    --sidebar-ring: 217 91% 50%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 2%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 2%;
+    --primary: 217 91% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --grid-line: rgba(0, 0, 0, 0.25);
+    --watermark-opacity: 0.1;
+    --mesh-opacity: 0.08;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .surface-card {
+    background: hsl(var(--card));
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.05), 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.5);
+    border-radius: var(--radius);
+  }
+
+  .surface-card-hover {
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .surface-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 20px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.5);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(217 91% 50% / 0.3), 0 0 60px hsl(217 91% 50% / 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(199 89% 48% / 0.3), 0 0 60px hsl(199 89% 48% / 0.1);
+  }
+
+  .glow-destructive {
+    box-shadow: 0 0 20px hsl(0 84% 60% / 0.3);
+  }
+
+  .forensic-badge {
+    @apply font-mono-data text-[10px] tracking-widest uppercase px-2 py-1 rounded-sm;
+    background: hsl(var(--primary) / 0.1);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+  }
+
+  .forensic-badge-success {
+    @apply font-mono-data text-[10px] tracking-widest uppercase px-2 py-1 rounded-sm;
+    background: hsl(var(--success) / 0.1);
+    border: 1px solid hsl(var(--success) / 0.2);
+    color: hsl(var(--success));
+  }
+
+  .forensic-badge-destructive {
+    @apply font-mono-data text-[10px] tracking-widest uppercase px-2 py-1 rounded-sm;
+    background: hsl(var(--destructive) / 0.1);
+    border: 1px solid hsl(var(--destructive) / 0.2);
+    color: hsl(var(--destructive));
+  }
+
+  .forensic-badge-warning {
+    @apply font-mono-data text-[10px] tracking-widest uppercase px-2 py-1 rounded-sm;
+    background: hsl(var(--warning) / 0.1);
+    border: 1px solid hsl(var(--warning) / 0.2);
+    color: hsl(var(--warning));
+  }
+
+  .terminal-window {
+    background: hsl(222 47% 3%);
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.03);
+  }
+
+  .pipeline-node {
+    @apply surface-card px-6 py-4 relative;
+    border: 1px solid hsl(var(--border));
+  }
+
+  .pipeline-node-active {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.05), 0 0 20px hsl(217 91% 50% / 0.15);
+  }
+
+  .scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    animation: scan 2s ease-in-out infinite;
+  }
+
+  @keyframes scan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes terminal-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .cursor-blink {
+    animation: terminal-blink 1s step-end infinite;
+  }
+
+  .mastery-grid {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    position: relative;
+  }
+
+  .mastery-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 80%, hsl(var(--background)) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .mastery-vignette::after {
+    background: radial-gradient(circle at 50% 50%, transparent 20%, hsl(var(--background)) 85%);
+  }
+
+  .bg-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    font-weight: 900;
+    color: hsl(var(--foreground));
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+}
